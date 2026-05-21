@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-leaflet/core": "^2.1.0",
     "@zxing/browser": "^0.2.0",
-    "@zxing/library": "^0.23.0",
+    "@zxing/library": "^0.22.0",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "leaflet": "^1.9.4",
@@ -21,7 +22,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.6.0",
-    "react-leaflet": "^5.0.0",
+    "react-leaflet": "^4.2.1",
     "recharts": "^3.8.1"
   },
   "devDependencies": {
