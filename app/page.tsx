@@ -10,7 +10,7 @@ import {
 /* ── 슬라이드 ─────────────────────────────────── */
 const SLIDES = [
   {
-    img: "https://picsum.photos/seed/incheon-night/1920/640",
+    img: "/images/slide1-incheon.png",
     badge: "🎯  이번 주 인기",
     title: "인천 최대\n외국인 쿠폰 플랫폼",
     sub: "방한 관광객을 위한 무료 쿠폰 · NICE 가맹점 네트워크 · 5개 언어 지원",
@@ -19,7 +19,7 @@ const SLIDES = [
     accent: "#D4AF37",
   },
   {
-    img: "https://picsum.photos/seed/korea-shopping/1920/640",
+    img: "/images/slide2-qr.png",
     badge: "📍  앱 설치 불필요",
     title: "QR 하나로\n즉시 발급 · 즉시 사용",
     sub: "스캔 한 번 → 쿠폰 발급 → 오프라인 결제 완결 · iOS · Android 동시 지원",
@@ -28,7 +28,7 @@ const SLIDES = [
     accent: "#60a5fa",
   },
   {
-    img: "https://picsum.photos/seed/merchant-store/1920/640",
+    img: "/images/slide3-merchant.png",
     badge: "🤝  가맹점 모집 중",
     title: "NICE 가맹점\n지금 합류하세요",
     sub: "전국 74만 NICE 가맹점 · 쿠폰 CMS 무상 제공 · 외국인 모객 효과 즉시",
@@ -329,7 +329,7 @@ export default function HomePage() {
         <section className="py-14 bg-white">
           <div className="max-w-[1440px] mx-auto px-8">
             <div className="rounded-3xl overflow-hidden relative h-[260px]"
-              style={{ backgroundImage: "url(https://picsum.photos/seed/city-aerial/1440/260)", backgroundSize: "cover", backgroundPosition: "center" }}>
+              style={{ backgroundImage: "url(/images/slide1-incheon.png)", backgroundSize: "cover", backgroundPosition: "center top" }}>
               <div className="absolute inset-0 bg-gradient-to-r from-[#0B1A30]/95 via-[#0B1A30]/75 to-[#0B1A30]/30" />
               <div className="relative h-full flex flex-col justify-center px-12">
                 <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">📍 Map</p>
