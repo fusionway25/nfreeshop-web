@@ -11,41 +11,41 @@ import {
 const SLIDES = [
   {
     img: "/images/slide1-incheon.png",
-    badge: "🎯  무료 쿠폰",
-    title: "Korea의 숨은 맛집·쇼핑\n무료로 즐기세요",
-    sub: "방한 관광객을 위한 무료 쿠폰 · 5개 언어 지원 · 앱 설치 불필요",
-    cta1: { label: "쿠폰 받으러 가기", href: "/coupons" },
-    cta2: { label: "지도로 찾기", href: "/map" },
+    badge: "🎯  Free Coupons",
+    title: "Discover Korea's\nHidden Gems for Free",
+    sub: "Free coupons for visiting tourists · 5 languages · No app download needed",
+    cta1: { label: "Browse Coupons", href: "/coupons" },
+    cta2: { label: "Find on Map", href: "/map" },
     accent: "#D4AF37",
   },
   {
     img: "/images/slide2-qr.png",
-    badge: "📍  현장에서 바로",
-    title: "QR 찍으면\n할인이 시작됩니다",
-    sub: "스캔 한 번으로 쿠폰 발급 완료 · 결제 전 직원에게 화면만 보여주세요",
-    cta1: { label: "QR 스캔하기", href: "/scan" },
-    cta2: { label: "쿠폰 보기", href: "/coupons" },
+    badge: "📍  Use Right Now",
+    title: "One QR Scan.\nInstant Discount.",
+    sub: "Scan once → coupon issued → show screen to staff · Works offline · iOS & Android",
+    cta1: { label: "Scan QR Code", href: "/scan" },
+    cta2: { label: "View Coupons", href: "/coupons" },
     accent: "#60a5fa",
   },
   {
     img: "/images/slide3-merchant.png",
-    badge: "🎁  지금 인기",
-    title: "전통시장부터 뷰티까지\n할인 쿠폰 한 곳에",
-    sub: "맛집 · 쇼핑 · K-뷰티 · 관광체험 · 숙박 — 여행이 더 풍성해집니다",
-    cta1: { label: "쿠폰 전체보기", href: "/coupons" },
-    cta2: { label: "내 주변 찾기", href: "/map" },
+    badge: "🎁  Trending Now",
+    title: "Street Food to K-Beauty —\nAll in One Place",
+    sub: "Restaurants · Shopping · K-Beauty · Tours · Accommodation — make your trip richer",
+    cta1: { label: "View All Coupons", href: "/coupons" },
+    cta2: { label: "Find Nearby", href: "/map" },
     accent: "#f97316",
   },
 ];
 
 const CATEGORIES = [
-  { icon: "🛍️", ko: "쇼핑", en: "Shopping" },
-  { icon: "🍜", ko: "맛집·카페", en: "Food & Cafe" },
-  { icon: "💆", ko: "뷰티·스파", en: "Beauty & Spa" },
-  { icon: "🗺️", ko: "관광·체험", en: "Tour & Activity" },
-  { icon: "🏨", ko: "숙박", en: "Stay" },
-  { icon: "✈️", ko: "교통", en: "Transport" },
-  { icon: "🎁", ko: "특산품", en: "Gifts" },
+  { icon: "🛍️", ko: "Shopping", en: "Shopping" },
+  { icon: "🍜", ko: "Food & Cafe", en: "Food & Cafe" },
+  { icon: "💆", ko: "Beauty & Spa", en: "Beauty & Spa" },
+  { icon: "🗺️", ko: "Tour & Activity", en: "Tour & Activity" },
+  { icon: "🏨", ko: "Stay", en: "Stay" },
+  { icon: "✈️", ko: "Transport", en: "Transport" },
+  { icon: "🎁", ko: "Gifts", en: "Gifts" },
 ];
 
 const LANG_OPTIONS = ["한국어", "English", "日本語", "中文简体", "Tiếng Việt"];
@@ -102,11 +102,11 @@ export default function HomePage() {
 
           <nav className="hidden lg:flex items-center gap-8">
             {[
-              { label: "쿠폰", href: "/coupons" },
-              { label: "지도", href: "/map" },
-              { label: "QR 스캔", href: "/scan" },
-              { label: "가맹점 CMS", href: "/merchant/dashboard" },
-              { label: "어드민", href: "/admin/dashboard" },
+              { label: "Coupons", href: "/coupons" },
+              { label: "Map", href: "/map" },
+              { label: "QR Scan", href: "/scan" },
+              { label: "Merchant CMS", href: "/merchant/dashboard" },
+              { label: "Admin", href: "/admin/dashboard" },
             ].map((item) => (
               <Link key={item.href} href={item.href}
                 className="text-[15px] font-medium text-gray-700 hover:text-[#0B1A30] transition-colors relative group">
@@ -229,16 +229,16 @@ export default function HomePage() {
             <div className="flex items-end justify-between mb-6">
               <div>
                 <p className="text-xs font-black text-[#D4AF37] uppercase tracking-widest mb-1.5">Hot Coupons</p>
-                <h2 className="text-3xl font-black text-[#0B1A30]">이번 주 인기 쿠폰</h2>
+                <h2 className="text-3xl font-black text-[#0B1A30]">Hot Coupons This Week</h2>
               </div>
               <Link href="/coupons"
                 className="flex items-center gap-1 text-sm font-semibold text-gray-400 hover:text-[#0B1A30] transition-colors group">
-                전체보기 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                View All <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
             <div className="flex gap-2 mb-7">
-              {["전체", "맛집", "쇼핑", "뷰티", "관광"].map((f, i) => (
+              {["All", "Food", "Shopping", "Beauty", "Tour"].map((f, i) => (
                 <button key={f}
                   className={`px-4 py-1.5 rounded-full text-sm font-bold transition-colors ${
                     i === 0 ? "bg-[#0B1A30] text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -263,10 +263,10 @@ export default function HomePage() {
                     </div>
                     <div className="p-4 bg-[#f7f8fa]">
                       <p className="text-[10px] font-black text-[#D4AF37] mb-1 uppercase tracking-wide">{m?.nameEn ?? ""}</p>
-                      <p className="text-sm font-bold text-[#0B1A30] leading-tight line-clamp-2">{c.titleKo}</p>
+                      <p className="text-sm font-bold text-[#0B1A30] leading-tight line-clamp-2">{c.titleEn ?? c.titleKo}</p>
                       <p className="text-[11px] text-gray-400 mt-2 flex items-center gap-1">
                         <MapPin size={9} className="flex-shrink-0" />
-                        {m?.addressKo?.split(" ").slice(0, 3).join(" ")}
+                        {m?.addressEn?.split(" ").slice(0, 3).join(" ")}
                       </p>
                     </div>
                   </Link>
@@ -282,11 +282,11 @@ export default function HomePage() {
             <div className="flex items-end justify-between mb-8">
               <div>
                 <p className="text-xs font-black text-[#D4AF37] uppercase tracking-widest mb-1.5">Featured Merchants</p>
-                <h2 className="text-3xl font-black text-[#0B1A30]">추천 가맹점</h2>
+                <h2 className="text-3xl font-black text-[#0B1A30]">Featured Merchants</h2>
               </div>
               <Link href="/map"
                 className="flex items-center gap-1 text-sm font-semibold text-gray-400 hover:text-[#0B1A30] transition-colors group">
-                지도에서 보기 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                View on Map <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
@@ -310,12 +310,12 @@ export default function HomePage() {
                     </div>
                     <div className="p-4">
                       <p className="font-bold text-[#0B1A30] text-sm truncate group-hover:text-[#D4AF37] transition-colors">
-                        {m.nameKo}
+                        {m.nameEn ?? m.nameKo}
                       </p>
-                      <p className="text-xs text-gray-400 truncate mt-0.5">{m.nameEn}</p>
+                      <p className="text-xs text-gray-400 truncate mt-0.5">{m.nameKo}</p>
                       <p className="text-[11px] text-gray-400 flex items-center gap-1 mt-2">
                         <MapPin size={9} className="flex-shrink-0" />
-                        {m.addressKo?.split(" ").slice(0, 3).join(" ")}
+                        {m.addressEn?.split(" ").slice(0, 3).join(" ")}
                       </p>
                     </div>
                   </Link>
@@ -334,11 +334,11 @@ export default function HomePage() {
               <div className="relative h-full flex flex-col justify-center px-12">
                 <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">📍 Map</p>
                 <h3 className="text-4xl font-black text-white mb-5 leading-tight">
-                  내 주변 가맹점<br />지금 찾아보기
+                  Find Merchants<br />Near You Now
                 </h3>
                 <Link href="/map"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#D4AF37] text-[#0B1A30] font-black text-sm rounded-xl hover:scale-105 transition-transform w-fit shadow-xl">
-                  <MapPin size={14} /> 지도 열기
+                  <MapPin size={14} /> Open Map
                 </Link>
               </div>
             </div>
@@ -351,12 +351,12 @@ export default function HomePage() {
             {[
               { val: "300+", ko: "주요 가맹점", en: "Key Merchants" },
               { val: "3,000+", ko: "등록 쿠폰", en: "Active Coupons" },
-              { val: "30만", ko: "MAU 목표", en: "Monthly Active Users" },
+              { val: "300K", ko: "MAU 목표", en: "Monthly Active Users Target" },
             ].map((s) => (
               <div key={s.ko} className="px-4">
                 <div className="text-4xl lg:text-5xl font-black text-[#D4AF37] mb-2">{s.val}</div>
-                <div className="text-sm font-bold text-white">{s.ko}</div>
-                <div className="text-xs text-white/35 mt-0.5">{s.en}</div>
+                <div className="text-sm font-bold text-white">{s.en}</div>
+                <div className="text-xs text-white/35 mt-0.5">{s.ko}</div>
               </div>
             ))}
           </div>
@@ -366,19 +366,19 @@ export default function HomePage() {
         <section className="py-14 bg-gradient-to-br from-[#f5f0fc] to-[#fce9ef]">
           <div className="max-w-2xl mx-auto px-8 text-center">
             <div className="text-5xl mb-5">📲</div>
-            <h3 className="text-2xl font-black text-[#0B1A30] mb-3">홈 화면에 추가하세요</h3>
+            <h3 className="text-2xl font-black text-[#0B1A30] mb-3">Add to Home Screen</h3>
             <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-              앱스토어 설치 없이 · 오프라인에서도 작동 · iOS · Android 동시 지원<br />
-              주소창의 <strong>설치 버튼</strong>을 탭하거나 <strong>&ldquo;홈 화면에 추가&rdquo;</strong>를 선택하세요
+              No app store download · Works offline · iOS & Android supported<br />
+              Tap the <strong>Install</strong> button in your browser or select <strong>&ldquo;Add to Home Screen&rdquo;</strong>
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link href="/coupons"
                 className="px-8 py-3.5 bg-[#0B1A30] text-white font-bold text-sm rounded-xl hover:bg-[#1a2f4f] transition-colors shadow-lg">
-                쿠폰 보러가기
+                Browse Coupons
               </Link>
               <Link href="/scan"
                 className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-[#0B1A30] text-[#0B1A30] font-bold text-sm rounded-xl hover:bg-[#0B1A30]/5 transition-colors">
-                <QrCode size={15} /> QR 스캔
+                <QrCode size={15} /> Scan QR
               </Link>
             </div>
           </div>
@@ -398,14 +398,14 @@ export default function HomePage() {
                 <span className="font-black text-xl">N FREE SHOP</span>
               </div>
               <p className="text-[13px] text-gray-400 leading-relaxed">
-                방한 외국인 관광객을 위한<br />무료 쿠폰 플랫폼.<br />NICE 가맹점 네트워크 연동.
+                Free coupon platform for<br />foreign tourists visiting Korea.<br />Powered by NICE merchant network.
               </p>
             </div>
 
             {[
-              { title: "서비스", links: ["쿠폰 목록", "가맹점 지도", "QR 스캔", "찜 목록"] },
-              { title: "파트너", links: ["가맹점 CMS", "쿠폰 등록", "통계", "설정"] },
-              { title: "관리자", links: ["대시보드", "가맹점 승인", "전체 통계", "시스템 설정"] },
+              { title: "Service", links: ["Coupon List", "Merchant Map", "QR Scan", "Wishlist"] },
+              { title: "Partners", links: ["Merchant CMS", "Register Coupon", "Analytics", "Settings"] },
+              { title: "Admin", links: ["Dashboard", "Merchant Approval", "Platform Stats", "System Settings"] },
             ].map((col) => (
               <div key={col.title}>
                 <h4 className="text-sm font-bold text-[#D4AF37] mb-4 uppercase tracking-wider">{col.title}</h4>
@@ -424,7 +424,7 @@ export default function HomePage() {
 
           <div className="pt-7 flex flex-col lg:flex-row items-center justify-between gap-4">
             <div className="text-[12px] text-gray-500">
-              © 2026 주식회사 퓨전웨이 · 워터트리 &mdash; N FREE SHOP. 운영 문의: fusionway25@gmail.com
+              © 2026 FusionWay Inc. · WaterTree &mdash; N FREE SHOP. Contact: fusionway25@gmail.com
             </div>
             <div className="flex items-center gap-3">
               {["🇰🇷 한국어", "🇺🇸 English", "🇯🇵 日本語", "🇨🇳 中文"].map((lang) => (
@@ -437,7 +437,7 @@ export default function HomePage() {
 
           <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-center gap-2 text-[11px] text-gray-600">
             <Store size={11} />
-            <span>NICE 정보통신 가맹점 홍보 플랫폼 &nbsp;·&nbsp; 인천관광공사 운영 레퍼런스: incheonstamptour.com · incheoncouponpass.com</span>
+            <span>NICE Information & Communications Merchant Platform &nbsp;·&nbsp; Incheon Tourism Corporation Reference: incheonstamptour.com · incheoncouponpass.com</span>
           </div>
         </div>
       </footer>

@@ -3,10 +3,10 @@ import { TrendingUp, Eye, ChevronRight, CheckCircle, Clock } from "lucide-react"
 import Link from "next/link";
 
 const STATS = [
-  { label: "이번 달 쿠폰 다운로드", val: "1,248", change: "+18%", icon: Eye, color: "text-blue-600", bg: "bg-blue-50" },
-  { label: "실제 사용(리딤)", val: "389", change: "+12%", icon: CheckCircle, color: "text-green-600", bg: "bg-green-50" },
-  { label: "페이지 조회수", val: "4,720", change: "+25%", icon: Eye, color: "text-purple-600", bg: "bg-purple-50" },
-  { label: "리딤율", val: "31.2%", change: "+3.1%p", icon: TrendingUp, color: "text-orange-600", bg: "bg-orange-50" },
+  { label: "Coupon Downloads (This Month)", val: "1,248", change: "+18%", icon: Eye, color: "text-blue-600", bg: "bg-blue-50" },
+  { label: "Actual Redeems", val: "389", change: "+12%", icon: CheckCircle, color: "text-green-600", bg: "bg-green-50" },
+  { label: "Page Views", val: "4,720", change: "+25%", icon: Eye, color: "text-purple-600", bg: "bg-purple-50" },
+  { label: "Redemption Rate", val: "31.2%", change: "+3.1%p", icon: TrendingUp, color: "text-orange-600", bg: "bg-orange-50" },
 ];
 
 const RECENT_COUPONS = [
@@ -20,14 +20,14 @@ const STATUS_BADGE: Record<string, string> = {
   PENDING: "bg-yellow-100 text-yellow-700",
   REJECTED: "bg-red-100 text-red-700",
 };
-const STATUS_LABEL: Record<string, string> = { APPROVED: "승인됨", PENDING: "검토중", REJECTED: "반려됨" };
+const STATUS_LABEL: Record<string, string> = { APPROVED: "Approved", PENDING: "Pending", REJECTED: "Rejected" };
 
 export default function MerchantDashboard() {
   return (
     <div className="space-y-6 max-w-5xl">
       <div>
-        <h1 className="text-2xl font-black text-gray-900">대시보드</h1>
-        <p className="text-gray-500 text-sm mt-1">인천 개항로 카페 1883 · 2026년 5월</p>
+        <h1 className="text-2xl font-black text-gray-900">Dashboard</h1>
+        <p className="text-gray-500 text-sm mt-1">Cafe 1883 Incheon · May 2026</p>
       </div>
 
       {/* KPI cards */}
@@ -39,7 +39,7 @@ export default function MerchantDashboard() {
             </div>
             <div className="text-2xl font-black text-gray-900">{s.val}</div>
             <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
-            <div className="text-xs text-green-600 font-medium mt-1">{s.change} 지난달 대비</div>
+            <div className="text-xs text-green-600 font-medium mt-1">{s.change} vs Last Month</div>
           </div>
         ))}
       </div>
@@ -48,7 +48,7 @@ export default function MerchantDashboard() {
         {/* Chart */}
         <div className="lg:col-span-2 bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-bold text-gray-900">쿠폰 다운로드 추이 (최근 7일)</h2>
+            <h2 className="font-bold text-gray-900">Coupon Downloads (Last 7 Days)</h2>
             <span className="text-xs text-gray-400">Downloads / Redeems</span>
           </div>
           <MerchantChart />
@@ -57,18 +57,18 @@ export default function MerchantDashboard() {
         {/* Quick actions */}
         <div className="space-y-4">
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-            <h2 className="font-bold text-gray-900 mb-3">빠른 작업</h2>
+            <h2 className="font-bold text-gray-900 mb-3">Quick Actions</h2>
             <div className="space-y-2">
               <Link href="/merchant/coupons/new" className="flex items-center justify-between p-3 bg-[#0B1A30] text-white rounded-xl text-sm font-medium hover:bg-[#1a2f4f] transition-colors">
-                <span>+ 새 쿠폰 등록</span>
+                <span>+ Register New Coupon</span>
                 <ChevronRight size={14} />
               </Link>
               <Link href="/merchant/profile" className="flex items-center justify-between p-3 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition-colors">
-                <span>매장 정보 수정</span>
+                <span>Edit Store Info</span>
                 <ChevronRight size={14} />
               </Link>
               <Link href="/merchant/stats" className="flex items-center justify-between p-3 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition-colors">
-                <span>상세 통계 보기</span>
+                <span>View Detailed Stats</span>
                 <ChevronRight size={14} />
               </Link>
             </div>
@@ -77,9 +77,9 @@ export default function MerchantDashboard() {
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
             <div className="flex items-center gap-2 mb-2">
               <Clock size={14} className="text-amber-600" />
-              <span className="text-sm font-bold text-amber-800">검토 대기 1건</span>
+              <span className="text-sm font-bold text-amber-800">1 Pending Review</span>
             </div>
-            <p className="text-xs text-amber-700">케이크 20% 할인 쿠폰이 관리자 승인 대기 중입니다.</p>
+            <p className="text-xs text-amber-700">Cake 20% OFF coupon is awaiting admin approval.</p>
           </div>
         </div>
       </div>
@@ -87,8 +87,8 @@ export default function MerchantDashboard() {
       {/* Coupon table */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-          <h2 className="font-bold text-gray-900">내 쿠폰 현황</h2>
-          <Link href="/merchant/coupons" className="text-sm text-[#0B1A30] font-medium flex items-center gap-1">전체 보기 <ChevronRight size={14} /></Link>
+          <h2 className="font-bold text-gray-900">My Coupons</h2>
+          <Link href="/merchant/coupons" className="text-sm text-[#0B1A30] font-medium flex items-center gap-1">View All <ChevronRight size={14} /></Link>
         </div>
         <div className="divide-y divide-gray-100">
           {RECENT_COUPONS.map((c) => (
@@ -102,11 +102,11 @@ export default function MerchantDashboard() {
               </span>
               <div className="text-right text-sm">
                 <p className="font-bold text-gray-900">{c.downloads}</p>
-                <p className="text-xs text-gray-400">다운로드</p>
+                <p className="text-xs text-gray-400">Downloads</p>
               </div>
               <div className="text-right text-sm">
                 <p className="font-bold text-green-600">{c.redeems}</p>
-                <p className="text-xs text-gray-400">사용</p>
+                <p className="text-xs text-gray-400">Redeems</p>
               </div>
             </div>
           ))}

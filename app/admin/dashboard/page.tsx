@@ -3,29 +3,29 @@ import { Store, Ticket, TrendingUp, CheckCircle, Clock, XCircle, ChevronRight } 
 import Link from "next/link";
 
 const KPIS = [
-  { label: "전체 가맹점", val: "127", sub: "승인 완료 94", icon: Store, color: "text-blue-600", bg: "bg-blue-50" },
-  { label: "활성 쿠폰", val: "348", sub: "이번 달 +42건", icon: Ticket, color: "text-[#D4AF37]", bg: "bg-yellow-50" },
-  { label: "누적 사용자", val: "18,420", sub: "외국인 72%", icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
-  { label: "이번 달 리딤", val: "9,182", sub: "전달 대비 +31%", icon: TrendingUp, color: "text-green-600", bg: "bg-green-50" },
+  { label: "Total Merchants", val: "127", sub: "94 Approved", icon: Store, color: "text-blue-600", bg: "bg-blue-50" },
+  { label: "Active Coupons", val: "348", sub: "+42 This Month", icon: Ticket, color: "text-[#D4AF37]", bg: "bg-yellow-50" },
+  { label: "Total Users", val: "18,420", sub: "72% Foreign Tourists", icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
+  { label: "Redeems (This Month)", val: "9,182", sub: "+31% vs Last Month", icon: TrendingUp, color: "text-green-600", bg: "bg-green-50" },
 ];
 
 const PENDING_MERCHANTS = [
-  { name: "송도 K-푸드 레스토랑", category: "맛집·카페", applied: "2026.05.20", contact: "010-1234-5678" },
-  { name: "인천항 기념품샵", category: "쇼핑", applied: "2026.05.21", contact: "032-456-7890" },
-  { name: "영종도 해녀 체험", category: "관광·체험", applied: "2026.05.21", contact: "010-9876-5432" },
+  { name: "Songdo K-Food Restaurant", category: "Food & Cafe", applied: "2026.05.20", contact: "010-1234-5678" },
+  { name: "Incheon Port Souvenir Shop", category: "Shopping", applied: "2026.05.21", contact: "032-456-7890" },
+  { name: "Yeongjongdo Haenyeo Experience", category: "Tour & Activity", applied: "2026.05.21", contact: "010-9876-5432" },
 ];
 
 const PENDING_COUPONS = [
-  { merchant: "인천 개항로 카페 1883", title: "케이크 20% 할인", type: "PERCENT", applied: "2026.05.21" },
-  { merchant: "송도 신세계 면세점", title: "뷰티 세트 ₩20,000 OFF", type: "FIXED", applied: "2026.05.20" },
+  { merchant: "Cafe 1883 Incheon", title: "Cake 20% OFF", type: "PERCENT", applied: "2026.05.21" },
+  { merchant: "Songdo Shinsegae Duty Free", title: "Beauty Set ₩20,000 OFF", type: "FIXED", applied: "2026.05.20" },
 ];
 
 export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-gray-900">관리자 대시보드</h1>
-        <p className="text-gray-500 text-sm mt-1">N FREE SHOP 전체 플랫폼 현황 · 2026년 5월 21일</p>
+        <h1 className="text-2xl font-black text-gray-900">Admin Dashboard</h1>
+        <p className="text-gray-500 text-sm mt-1">N FREE SHOP Platform Overview · May 21, 2026</p>
       </div>
 
       {/* KPI */}
@@ -46,18 +46,18 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <div className="lg:col-span-2 bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-bold text-gray-900">플랫폼 사용 현황 (최근 30일)</h2>
+            <h2 className="font-bold text-gray-900">Platform Usage (Last 30 Days)</h2>
           </div>
           <AdminChart />
         </div>
 
         <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-          <h2 className="font-bold text-gray-900 mb-4">승인 대기 현황</h2>
+          <h2 className="font-bold text-gray-900 mb-4">Pending Approvals</h2>
           <div className="space-y-3">
             {[
-              { label: "가맹점 신규 신청", count: 3, color: "bg-blue-500", href: "/admin/merchants" },
-              { label: "쿠폰 등록 요청", count: 2, color: "bg-yellow-500", href: "/admin/coupons" },
-              { label: "정보 수정 요청", count: 1, color: "bg-purple-500", href: "/admin/merchants" },
+              { label: "New Merchant Applications", count: 3, color: "bg-blue-500", href: "/admin/merchants" },
+              { label: "Coupon Registration Requests", count: 2, color: "bg-yellow-500", href: "/admin/coupons" },
+              { label: "Info Update Requests", count: 1, color: "bg-purple-500", href: "/admin/merchants" },
             ].map((item) => (
               <Link key={item.label} href={item.href} className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-colors group">
                 <div className="flex items-center gap-2.5">
@@ -75,15 +75,15 @@ export default function AdminDashboard() {
           <div className="mt-4 pt-4 border-t border-gray-100 grid grid-cols-3 gap-2 text-center text-xs">
             <div>
               <div className="font-black text-green-600 text-lg">94</div>
-              <div className="text-gray-400">승인완료</div>
+              <div className="text-gray-400">Approved</div>
             </div>
             <div>
               <div className="font-black text-yellow-600 text-lg">6</div>
-              <div className="text-gray-400">검토중</div>
+              <div className="text-gray-400">Pending</div>
             </div>
             <div>
               <div className="font-black text-red-500 text-lg">2</div>
-              <div className="text-gray-400">반려</div>
+              <div className="text-gray-400">Rejected</div>
             </div>
           </div>
         </div>
@@ -93,8 +93,8 @@ export default function AdminDashboard() {
         {/* Pending merchants */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <h2 className="font-bold text-gray-900">가맹점 신규 신청</h2>
-            <Link href="/admin/merchants" className="text-xs text-[#0B1A30] font-medium">전체 보기</Link>
+            <h2 className="font-bold text-gray-900">New Merchant Applications</h2>
+            <Link href="/admin/merchants" className="text-xs text-[#0B1A30] font-medium">View All</Link>
           </div>
           <div className="divide-y divide-gray-100">
             {PENDING_MERCHANTS.map((m) => (
@@ -106,10 +106,10 @@ export default function AdminDashboard() {
                 </div>
                 <div className="flex gap-1">
                   <button className="flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg hover:bg-green-200 transition-colors">
-                    <CheckCircle size={11} />승인
+                    <CheckCircle size={11} />Approve
                   </button>
                   <button className="flex items-center gap-1 bg-red-50 text-red-500 text-xs font-semibold px-2 py-1.5 rounded-lg hover:bg-red-100 transition-colors">
-                    <XCircle size={11} />반려
+                    <XCircle size={11} />Reject
                   </button>
                 </div>
               </div>
@@ -120,8 +120,8 @@ export default function AdminDashboard() {
         {/* Pending coupons */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <h2 className="font-bold text-gray-900">쿠폰 등록 요청</h2>
-            <Link href="/admin/coupons" className="text-xs text-[#0B1A30] font-medium">전체 보기</Link>
+            <h2 className="font-bold text-gray-900">Coupon Registration Requests</h2>
+            <Link href="/admin/coupons" className="text-xs text-[#0B1A30] font-medium">View All</Link>
           </div>
           <div className="divide-y divide-gray-100">
             {PENDING_COUPONS.map((c) => (
@@ -132,11 +132,11 @@ export default function AdminDashboard() {
                   <p className="text-xs text-gray-400">{c.merchant} · {c.applied}</p>
                 </div>
                 <span className="bg-yellow-100 text-yellow-700 text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0">
-                  <Clock size={9} className="inline mr-0.5" />검토중
+                  <Clock size={9} className="inline mr-0.5" />Pending
                 </span>
                 <div className="flex gap-1">
-                  <button className="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg hover:bg-green-200">승인</button>
-                  <button className="bg-red-50 text-red-500 text-xs font-semibold px-2 py-1.5 rounded-lg hover:bg-red-100">반려</button>
+                  <button className="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg hover:bg-green-200">Approve</button>
+                  <button className="bg-red-50 text-red-500 text-xs font-semibold px-2 py-1.5 rounded-lg hover:bg-red-100">Reject</button>
                 </div>
               </div>
             ))}

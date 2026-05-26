@@ -10,9 +10,9 @@ const REDEEM_COLORS: Record<string, string> = {
   QR_REVERSE: "bg-emerald-100 text-emerald-700",
 };
 const REDEEM_LABELS: Record<string, string> = {
-  SCREEN: "화면제시",
-  BARCODE: "바코드",
-  QR_REVERSE: "QR역방향",
+  SCREEN: "Show Screen",
+  BARCODE: "Barcode",
+  QR_REVERSE: "QR Scan",
 };
 const TYPE_LABEL = (type: string, val: number) =>
   type === "PERCENT" ? `${val}% OFF` : type === "FIXED" ? `₩${val.toLocaleString()} OFF` : "FREE GIFT";
@@ -62,7 +62,7 @@ export default function CouponsPage({
               />
             </form>
             <Link href="/merchant/dashboard" className="hidden md:block bg-[#D4AF37] text-black text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-yellow-400">
-              가맹점 CMS
+              Merchant CMS
             </Link>
           </div>
         </div>
@@ -76,28 +76,28 @@ export default function CouponsPage({
               🇰🇷 Korea FIT Travel Coupon Platform
             </div>
             <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
-              한국 여행,<br />
-              <span className="text-[#D4AF37]">할인은 여기서</span>
+              Travel Korea,<br />
+              <span className="text-[#D4AF37]">Save More Here</span>
             </h1>
             <p className="text-gray-300 text-lg mb-6">
-              인천·서울 400+ 가맹점의 독점 쿠폰을 무료로.<br className="hidden md:block" />
-              Exclusive coupons for restaurants, shopping & experiences.
+              400+ exclusive merchant coupons in Incheon & Seoul, all free.<br className="hidden md:block" />
+              Restaurants, shopping, K-beauty & unforgettable experiences.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/scan" className="bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-xl hover:bg-yellow-400 transition-colors flex items-center gap-2">
-                📱 QR 스캔으로 즉시 할인
+                📱 Scan QR for Instant Discount
               </Link>
               <Link href="/map" className="bg-white/10 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/20 transition-colors flex items-center gap-2">
-                <MapPin size={16} />내 주변 가맹점 보기
+                <MapPin size={16} />Find Nearby Merchants
               </Link>
             </div>
           </div>
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 flex-shrink-0">
             {[
-              { val: "400+", label: "가맹점", sub: "Merchants" },
-              { val: "200万", label: "누적 조회", sub: "Page Views" },
-              { val: "5개", label: "언어 지원", sub: "Languages" },
+              { val: "400+", label: "Merchants", sub: "가맹점" },
+              { val: "2M+", label: "Page Views", sub: "누적 조회" },
+              { val: "5", label: "Languages", sub: "언어 지원" },
             ].map((s) => (
               <div key={s.val} className="bg-white/10 rounded-2xl p-4 text-center min-w-[90px]">
                 <div className="text-2xl font-black text-[#D4AF37]">{s.val}</div>
@@ -113,8 +113,8 @@ export default function CouponsPage({
         {/* ── FEATURED ────────────────────────────────── */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-gray-900">🔥 추천 쿠폰 Featured</h2>
-            <Link href="/coupons?cat=all" className="text-sm text-[#0B1A30] flex items-center gap-1 font-medium">전체 보기 <ChevronRight size={14} /></Link>
+            <h2 className="text-xl font-bold text-gray-900">🔥 Featured Coupons</h2>
+            <Link href="/coupons?cat=all" className="text-sm text-[#0B1A30] flex items-center gap-1 font-medium">View All <ChevronRight size={14} /></Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {featured.map((c) => {
@@ -146,7 +146,7 @@ export default function CouponsPage({
         <div className="flex gap-8">
           {/* Category sidebar */}
           <aside className="hidden lg:block w-48 flex-shrink-0">
-            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">카테고리</h3>
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Categories</h3>
             <div className="space-y-1">
               {[{ id: "all", nameEn: "All Coupons", icon: "🎯" }, ...MOCK_CATEGORIES].map((c) => (
                 <a
@@ -180,7 +180,7 @@ export default function CouponsPage({
             </div>
 
             <div className="flex items-center justify-between mb-4">
-              <p className="text-sm text-gray-500"><span className="font-bold text-gray-900">{coupons.length}</span>개의 쿠폰</p>
+              <p className="text-sm text-gray-500"><span className="font-bold text-gray-900">{coupons.length}</span> coupons</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
